@@ -1,4 +1,4 @@
-package com.pfm.hienvla05;
+package com.pfm;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
