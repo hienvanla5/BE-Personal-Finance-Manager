@@ -1,6 +1,6 @@
 package com.pfm.service;
 
-import com.pfm.dto.request.AuthRequest;
+import com.pfm.dto.request.LoginRequest;
 import com.pfm.dto.request.RegisterRequest;
 import com.pfm.entity.User;
 import com.pfm.exception.DuplicateResourceException;
@@ -26,7 +26,7 @@ public class AuthService {
 
     private final PasswordEncoder passwordEncoder;
 
-    public String login(AuthRequest request) {
+    public String login(LoginRequest request) {
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
