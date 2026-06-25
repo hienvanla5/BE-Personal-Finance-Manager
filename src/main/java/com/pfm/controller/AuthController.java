@@ -1,9 +1,11 @@
 package com.pfm.controller;
 
-import com.pfm.dto.AuthRequest;
-import com.pfm.dto.RegisterRequest;
+import com.pfm.dto.request.AuthRequest;
+import com.pfm.dto.request.RegisterRequest;
+import com.pfm.dto.response.AuthResponse;
 import com.pfm.service.AuthService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,15 +23,16 @@ public class AuthController {
     public ResponseEntity<String> register(
             @RequestBody RegisterRequest request
     ) {
-        return ResponseEntity.ok(authService.register(request));
+        return new ResponseEntity<>(authService.register(request), HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(
+    public ResponseEntity<AuthResponse> login(
             @RequestBody AuthRequest request
     ) {
+        String token = authService.login(request);
         return ResponseEntity.ok(
-                authService.login(request)
+                new AuthResponse(token)
         );
 
     }

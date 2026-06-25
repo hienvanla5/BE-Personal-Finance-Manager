@@ -1,7 +1,7 @@
 package com.pfm.service;
 
-import com.pfm.dto.AuthRequest;
-import com.pfm.dto.RegisterRequest;
+import com.pfm.dto.request.AuthRequest;
+import com.pfm.dto.request.RegisterRequest;
 import com.pfm.entity.User;
 import com.pfm.exception.DuplicateResourceException;
 import com.pfm.repository.UserRepository;
